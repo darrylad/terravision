@@ -126,6 +126,7 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 24, 4, 10),
         appBar: AppBar(
+          // automaticallyImplyLeading: false,
           title: const Text('Terravision'),
           titleTextStyle: const TextStyle(
             color: Color.fromARGB(255, 255, 117, 117),

@@ -1,15 +1,18 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:terravision/camera_launcher_page.dart';
 import 'package:terravision/camera_page.dart';
 import 'package:terravision/history_page.dart';
 import 'package:terravision/more_page.dart';
-import 'package:terravision/upload_page.dart';
+// import 'package:terravision/upload_page.dart';
+import 'package:terravision/welcome_page.dart';
 
 // void main() {
 //   runApp(const MyApp());
 // }
 
 Future<void> main() async {
+  // uncomment this to run the app
   try {
     WidgetsFlutterBinding.ensureInitialized();
     cameras = await availableCameras();
@@ -52,7 +55,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const WelcomePage(),
     );
   }
 }
@@ -123,12 +126,12 @@ class _HomePageState extends State<HomePage> {
         page = const HistoryPage();
         break;
       case 1:
-        page = const CameraPage();
+        page = const CameraLauncherPage();
         break;
+      // case 2:
+      //   page = const UploadPage();
+      //   break;
       case 2:
-        page = const UploadPage();
-        break;
-      case 3:
         page = const MorePage();
         break;
       default:
@@ -166,8 +169,9 @@ class _HomePageState extends State<HomePage> {
                   child: BottomNavigationBar(
                     showUnselectedLabels: true,
                     backgroundColor: Colors.black,
-                    selectedItemColor: const Color.fromARGB(255, 255, 166, 166),
-                    unselectedItemColor: colorScheme.onPrimary,
+                    selectedItemColor: const Color.fromRGBO(255, 254, 208, 1),
+                    unselectedItemColor:
+                        const Color.fromRGBO(202, 230, 255, 0.75),
                     items: const [
                       BottomNavigationBarItem(
                         backgroundColor: Colors.black,
@@ -176,13 +180,13 @@ class _HomePageState extends State<HomePage> {
                       ),
                       BottomNavigationBarItem(
                         backgroundColor: Colors.black,
-                        icon: Icon(Icons.camera_alt_outlined),
-                        label: 'Camera',
+                        icon: Icon(Icons.star),
+                        label: 'Actions',
                       ),
-                      BottomNavigationBarItem(
-                          backgroundColor: Colors.black,
-                          icon: Icon(Icons.upload_file),
-                          label: 'Upload'),
+                      // BottomNavigationBarItem(
+                      //     backgroundColor: Colors.black,
+                      //     icon: Icon(Icons.upload_file),
+                      //     label: 'Upload'),
                       BottomNavigationBarItem(
                         backgroundColor: Colors.black,
                         icon: Icon(Icons.more_horiz),
