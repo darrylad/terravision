@@ -1,6 +1,6 @@
 # terravision
 
-A new Flutter project.
+This app is a part of an SIH project.
 
 ## Getting Started
 
